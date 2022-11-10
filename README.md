@@ -18,7 +18,7 @@ The Spot of Tea app serves as a Backend that receives requests for creating tea 
 
 ## Schema
 
-![image](https://user-images.githubusercontent.com/80866068/201160033-9f5dc782-84d0-4436-8618-c048200283f3.png)
+<img width="1033" alt="image" src="https://user-images.githubusercontent.com/80866068/201164604-d2f737e5-ab72-4679-bf94-f2cfd09966ca.png">
 
 ## Endpoints
 
