@@ -57,6 +57,23 @@ RSpec.describe "Subscription Request" do
     end
   end
 
-  context ''
+  context '#Update' do
+    describe 'Happy Path' do
+      it 'Receives a request to cancel a subscription and returns a status 200' do
+        patch api_v1_subscription_path(0), params: { customer_id: @customer.id, 
+                                                     subscription_id: Subscription.ids.sample,                             
+                                              }
+        expect(response).to have_http_status 200   
+      end
+    end
+
+    describe 'Sad Path' do
+      it 'Receives a request with an invalid id and returns a status 404' do
+        patch api_v1_subscription_path(0), params: { customer_id: 438279, 
+                                                     subscription_id: Subscription.ids.sample,                             
+                                              }
+        expect(response).to have_http_status 404   
+      end
+    end
+  end
 end
-                                              #  subscription_id: Subscription.ids.sample, 

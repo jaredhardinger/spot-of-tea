@@ -22,6 +22,13 @@ class Api::V1::SubscriptionController < ApplicationController
   end
 
   def update
-
+    customer = Customer.find_by(id: params[:customer_id])
+    subscription = Subscription.find_by(id: params[:subscription_id])
+    if customer && subscription
+      subscription.cancelled!
+      render json: { status: "Updated", code: 200, message: "Tea Subscription Cancelled" }, status: 200
+    else
+      render json: { status: "Not Found", code: 404, message: "Customer and/or Subscription not found" }, status: 404
+    end
   end
 end
