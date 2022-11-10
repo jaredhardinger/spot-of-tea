@@ -7,16 +7,15 @@ RSpec.describe "Subscription Request" do
       create(:tea)
       create(:subscription, customer_id: @customer.id)
       SubscriptionTea.create(subscription_id: Subscription.ids.sample, tea_id: Tea.ids.sample)
-    end
-    
+    end 
   end
   context '#Index' do 
     describe 'Happy Path' do 
       it 'Receives a request to see all subscriptions and returns a status 200 and a response' do 
 
-      binding.pry
+      # binding.pry
 
-        get "/api/v1/subscription"
+        get "/api/v1/subscription?customer_id=#{@customer.id}"
         expect(response).to have_http_status 200
       #   parsed = JSON.parse(response.body, symbolize_names: true)
 
