@@ -44,7 +44,19 @@ RSpec.describe "Subscription Request" do
       end
     end
 
-    
+    describe 'Sad Path' do 
+      it 'Recieves a request with an invalid tea_id and returns a status 404' do 
+        post "/api/v1/subscription", params: { customer_id: @customer.id, 
+                                               tea_id: 4506,                            
+                                               subscription_title: 'Yummy tea',
+                                               subscription_price: '25.05',
+                                               subscription_frequency: '4'
+                                              }
+        expect(response).to have_http_status 404
+      end
+    end
   end
+
+  context ''
 end
                                               #  subscription_id: Subscription.ids.sample, 
