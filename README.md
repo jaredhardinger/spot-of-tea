@@ -26,7 +26,7 @@ The Spot of Tea app serves as a Backend that receives requests for creating tea 
 ```shell
 GET /api/v1/subscription
 
-params: { customer_id: @customer.id, 
+body: { customer_id: @customer.id, 
                       tea_id: Tea.ids.sample,                            
                       subscription_title: 'Yummy tea',
                       subscription_price: '25.05',
@@ -38,7 +38,7 @@ params: { customer_id: @customer.id,
 - Cancel a subscription
 ```shell
 PATCH /api/v1/subscription
-params: {
+body: {
           customer_id: 4, 
           subscription_id: 5,
 } 
@@ -47,7 +47,7 @@ params: {
 - See all subscriptions
 ```shell
 PATCH /api/v1/subscription
-params: {
+body: {
           customer_id: 4
 } 
 ```
